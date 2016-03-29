@@ -1,0 +1,30 @@
+{
+  "name": "Nudge",
+  "version": "0.0.1",
+  "description": "An intranet style chat app for office networks",
+  "main": "production/out.js",
+  "scripts": {
+    "test": "node production/test.js",
+    "start": "node production/out.js"
+  },
+  "keywords": [
+    "websockets",
+    "socketsio",
+    "xmpp",
+    "chat"
+  ],
+  "author": "Zeeshan Hyder",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "ip": "^1.1.0",
+    "ws": "^1.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-typescript": "^2.12.0"
+  }
+}

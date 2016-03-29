@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    
+    <title> Hopper Test Client </title>
+    
+    </head>
+    <body>
+    
+        
+        <div id="wrapper">
+        
+            <div id="status">Connecting</div>
+            
+            <h3>Response</h3>
+            <code id="res"></code>
+        </div>
+        <script>
+            
+            function sendMessage(message, server){
+              var response = {
+                  from: "zeeshan@hopper.ch",
+                  payload: message,
+                  type: "SERVER_MSG"
+              };
+              response = JSON.stringify(response);
+              server.send(response);
+            };
+            var IP = "192.168.47.70"
+            ,hopperServer = new WebSocket("ws://"+IP+":7086");
+            
+            
+            hopperServer.onopen = function(){
+                document.getElementById("status").innerHTML="Connected";
+                sendMessage("REGISTER_CLIENT",hopperServer);
+            }
+            
+            hopperServer.onmessage = function(e){
+                document.getElementById("res").innerHTML = JSON.stringify(e.data);
+            }
+            hopperServer.onclose = function(){
+                 document.getElementById("status").innerHTML = "Disconnected";
+            }
+        </script>
+    </body>
+</html>
